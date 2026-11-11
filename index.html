@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>wkwkwk</title>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;width:100vw;height:100vh}
+#bgCanvas{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0}
+.bg-berbaris{position:fixed;top:0;left:0;width:100%;height:100%;color:#00ff00;font-family:'Share Tech Mono';font-size:11px;opacity:0.42;z-index:1;white-space:pre-wrap;text-shadow:0 0 5px #00ff00}
+#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;opacity:0.5}
+#pecah{position:fixed;top:0;left:0;width:100%;height:100%;z-index:3;pointer-events:none}
+.top-text,.bottom-text{position:fixed;left:0;width:100%;z-index:4;text-align:center;font-family:'Creepster';color:#ff0000;font-size:28px;text-shadow:0 0 10px #ff0000,0 0 30px #ff0000,4px 4px 0 #000;animation:blink .12s infinite alternate}
+.top-text{top:8px} .bottom-text{bottom:8px}
+@keyframes blink{0%{opacity:0.7}100%{opacity:1;transform:scale(1.04)}}
+.center{position:fixed;top:0;left:0;width:100%;height:100%;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px}
+.mid-breach{font-family:'Creepster';color:#fff;background:#ff0000;padding:6px 16px;border-radius:8px;font-size:34px;font-weight:900;margin-bottom:10px;box-shadow:5px 5px 0 #000,0 0 25px #ff0000}
+.big{font-family:'Creepster';color:#ff0000;font-size:40px;line-height:0.85;text-shadow:0 0 15px #ff0000,0 0 45px #ff0000,7px 7px 0 #000;animation:shake .05s infinite alternate}
+@keyframes shake{0%{transform:scale(1.1) rotate(-1.5deg)}100%{transform:scale(1.24) rotate(1.5deg)}}
+.mampus-box{font-family:'Creepster';color:#fff;background:#ff0000;padding:10px 20px;border-radius:12px;font-size:68px;font-weight:900;margin-top:12px;box-shadow:7px 7px 0 #000,0 0 35px #ff0000;display:none;animation:shake .04s infinite alternate}
+.counter{font-family:'Share Tech Mono';color:#fff;background:#ff0000;padding:8px 18px;border-radius:12px;font-size:36px;font-weight:900;margin-top:10px;box-shadow:7px 7px 0 #000}
+.prankEnd{position:fixed;bottom:0;left:0;width:100%;z-index:10;text-align:center;color:#fff;font-family:'Share Tech Mono';font-size:13px;font-weight:700;padding:12px;background:rgba(255,0,0,0.85);display:none}
+.tap{position:fixed;top:0;left:0;width:100%;height:100%;z-index:20;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;text-align:center;padding:20px}
+.btn{background:#ff0000;color:#fff;border:4px solid #fff;border-radius:14px;padding:14px 22px;font-weight:900;font-size:19px;margin-top:14px;box-shadow:5px 5px 0 #fff}
+</style>
+</head>
+<body>
+
+<canvas id="bgCanvas"></canvas>
+<div class="bg-berbaris" id="hack"></div>
+<canvas id="matrix"></canvas>
+<canvas id="pecah"></canvas>
+
+<div class="top-text">⚠️ SISTEM BREACH ⚠️</div>
+
+<div class="center">
+<div class="mid-breach">SISTEM BREACH</div>
+<div class="big">WKWKWKW KASIHAN SIHH BG<br>WKWKWKWKWKWKWKW<br>HAHAHAHAHAHHAHA<br>MINIMAL BAYAR<br>100 MILIAR DULUU<br>WKWKWKWKWKWKW</div>
+<div class="counter" id="num">11</div>
+<div class="mampus-box" id="mampus">MAMPUS !!!</div>
+</div>
+
+<div class="bottom-text">SISTEM BREACH - AKSES DITOLAK</div>
+
+<div class="prankEnd" id="prankEnd">sorii yaa sudah prenk luu kwkwkwkwkwkwkwkwkwwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwwkkwk</div>
+
+<div class="tap" id="tapLayer" onclick="mulai()">
+<div style="font-family:Creepster;font-size:40px;color:#ff0000">TAP UNTUK MELIHAT<br>WEB KEREN</div>
+<button class="btn">LIHAT WEB KEREN</button>
+</div>
+
+<script>
+let bg=document.getElementById('bgCanvas'); let bctx=bg.getContext('2d'); bg.width=innerWidth; bg.height=innerHeight;
+function drawBG(){bctx.fillStyle="#000"; bctx.fillRect(0,0,bg.width,bg.height);} drawBG();
+
+let pecah=document.getElementById('pecah'); let pctx=pecah.getContext('2d'); pecah.width=innerWidth; pecah.height=innerHeight;
+function drawCracks(){
+pctx.clearRect(0,0,pecah.width,pecah.height);
+pctx.strokeStyle="rgba(255,255,255,0.35)"; pctx.lineWidth=1.5; pctx.shadowColor="#ff0000"; pctx.shadowBlur=8;
+let cx=pecah.width/2, cy=pecah.height/2;
+for(let i=0;i<12;i++){
+let ang=(Math.PI*2/12)*i + (Math.random()-0.5)*0.3;
+pctx.beginPath(); pctx.moveTo(cx,cy);
+let x=cx,y=cy;
+for(let j=0;j<6;j++){
+x+=Math.cos(ang+ (Math.random()-0.5)*0.5)*(60+Math.random()*90);
+y+=Math.sin(ang+ (Math.random()-0.5)*0.5)*(60+Math.random()*90);
+pctx.lineTo(x,y);
+if(Math.random()>0.5){pctx.moveTo(x,y); pctx.lineTo(x+(Math.random()-0.5)*80, y+(Math.random()-0.5)*80); pctx.moveTo(x,y);}
+}
+pctx.stroke();
+}
+pctx.strokeStyle="rgba(255,0,0,0.4)"; pctx.lineWidth=2;
+for(let k=0;k<4;k++){pctx.beginPath(); pctx.moveTo(0,Math.random()*pecah.height); pctx.lineTo(pecah.width, Math.random()*pecah.height + (Math.random()-0.5)*100); pctx.stroke();}
+}
+drawCracks();
+
+let audioCtx;
+function mulai(){
+audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+let oB=audioCtx.createOscillator(); oB.type='sine'; oB.frequency.value=33; let gB=audioCtx.createGain(); gB.gain.value=1.5; let fB=audioCtx.createBiquadFilter(); fB.type='lowshelf'; fB.frequency.value=100; fB.gain.value=44; oB.connect(fB); fB.connect(gB); gB.connect(audioCtx.destination); oB.start();
+let o=audioCtx.createOscillator(); o.type='sawtooth'; o.frequency.value=52; let g=audioCtx.createGain(); g.gain.value=0.6; let f=audioCtx.createBiquadFilter(); f.type='lowpass'; f.frequency.value=550; o.connect(f); f.connect(g); g.connect(audioCtx.destination); o.start();
+let oK=audioCtx.createOscillator(); oK.type='sawtooth'; oK.frequency.value=170; let gK=audioCtx.createGain(); gK.gain.value=0; let bK=audioCtx.createBiquadFilter(); bK.type='lowshelf'; bK.frequency.value=180; bK.gain.value=36; oK.connect(bK); bK.connect(gK); gK.connect(audioCtx.destination); oK.start();
+let t=0;
+let inter=setInterval(()=>{
+oB.frequency.value=26+Math.random()*22; gB.gain.value=1+Math.random()*0.8; o.frequency.value=40+Math.random()*90; oK.frequency.value=140+Math.random()*320; gK.gain.value=Math.random()>0.25?1.2:0;
+if(navigator.vibrate) navigator.vibrate([80,20,80]);
+if(Math.random()>0.7) drawCracks();
+t+=80;
+// 30 MENIT FULL
+if(t>1800000){
+clearInterval(inter); o.stop(); oK.stop(); oB.stop();
+document.getElementById('prankEnd').style.display='block';
+document.getElementById('prankEnd').innerText="sorii yaa sudah prenk luu kwkwkwkwkwkwkwkwkwwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwwkkwk";
+}
+},80);
+document.getElementById('tapLayer').style.display='none';
+}
+
+let numEl=document.getElementById('num'); let mampusEl=document.getElementById('mampus'); let show=false;
+setInterval(()=>{show=!show; if(show){numEl.style.display='none'; mampusEl.style.display='block';}else{numEl.style.display='block'; mampusEl.style.display='none'; numEl.innerText=Math.floor(11+Math.random()*988988);}},380);
+
+let hackEl=document.getElementById('hack'); let s=""; for(let i=0;i<800;i++) s+=`> RIFZZ STORE BREACH ${Math.floor(Math.random()*999999)} ACCESS GRANTED // INJECTING SYSTEM BREACH\n`; hackEl.innerText=s; let p=0; setInterval(()=>{p+=22; hackEl.style.transform=`translateY(-${p%3000}px)`},18);
+
+let canvas=document.getElementById('matrix'); let ctx=canvas.getContext('2d'); canvas.width=innerWidth; canvas.height=innerHeight; let chars="RIFZZ01WKWK@#$%"; let particles=[]; for(let i=0;i<130;i++)particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,size:8+Math.random()*18,char:chars[Math.floor(Math.random()*chars.length)],speed:0.5+Math.random()*2.2,opacity:0.3+Math.random()*0.6});
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(pr=>{ctx.fillStyle=`rgba(0,255,0,${pr.opacity})`; ctx.font=`${pr.size}px Share Tech Mono`; ctx.fillText(pr.char,pr.x,pr.y); pr.y+=pr.speed; if(pr.y>canvas.height){pr.y=-20; pr.x=Math.random()*canvas.width;}}); requestAnimationFrame(draw);} draw();
+window.onresize=()=>{bg.width=innerWidth; bg.height=innerHeight; canvas.width=innerWidth; canvas.height=innerHeight; pecah.width=innerWidth; pecah.height=innerHeight; drawBG(); drawCracks();};
+</script>
+</body>
+</html>
